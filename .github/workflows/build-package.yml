@@ -31,3 +31,10 @@ jobs:
       run: |
         gzip -9c changelog > dns-nas-utils/usr/share/doc/dns-nas-utils/changelog.gz
         fakeroot dpkg-deb --build dns-nas-utils
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        # Artifact name
+        name: Upload deb
+        # A file, directory or wildcard pattern that describes what to upload
+        path: dns-nas-utils.deb
