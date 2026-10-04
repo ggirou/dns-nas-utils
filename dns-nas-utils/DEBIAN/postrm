@@ -1,5 +1,10 @@
 #!/bin/sh -e
 
+if command -v systemctl >/dev/null 2>&1 && [ -d /run/systemd/system ]; then
+    systemctl disable fan-daemon.service >/dev/null || true
+    systemctl daemon-reload >/dev/null || true
+fi
+
 if [ "$1" = "purge" ] ; then
-    update-rc.d fan-daemon remove >/dev/null
+    update-rc.d fan-daemon remove >/dev/null || true
 fi

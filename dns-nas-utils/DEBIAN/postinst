@@ -1,6 +1,12 @@
 #!/bin/sh -e
 
-if [ -x "/etc/init.d/fan-daemon" ]; then
-    update-rc.d fan-daemon defaults >/dev/null
-    invoke-rc.d fan-daemon start || exit $?
+if [ "$1" = "configure" ]; then
+    if command -v systemctl >/dev/null 2>&1 && [ -d /run/systemd/system ]; then
+        systemctl daemon-reload >/dev/null || true
+        systemctl enable fan-daemon.service >/dev/null || true
+        systemctl start fan-daemon.service >/dev/null || true
+    elif [ -x "/etc/init.d/fan-daemon" ]; then
+        update-rc.d fan-daemon defaults >/dev/null
+        invoke-rc.d fan-daemon start || exit $?
+    fi
 fi

@@ -1,3 +1,8 @@
+dns-nas-utils (1.6-1)
+  * Add native systemd service unit for fan-daemon
+  * Prefer systemd startup in maintainer scripts while retaining SysV fallback
+  * Fix package compatibility warnings on recent Debian releases
+
 dns-nas-utils (1.5-1)
   * Force lang to C in order to prevent UTF-8 multibyte error (thanks KiLMaN)
 
