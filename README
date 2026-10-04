@@ -7,7 +7,7 @@ Installing
 Until I get around to adding it to an apt repository, it can be installed
 thus::
 
-  wget https://github.com/ggirou/dns-nas-utils/raw/master/dns-nas-utils.deb
+  wget https://github.com/ggirou/dns-nas-utils/releases/download/v1.6-1/dns-nas-utils.deb
   dpkg -i dns-nas-utils.deb
 
 Temperature
